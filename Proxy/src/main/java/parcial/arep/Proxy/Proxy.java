@@ -20,9 +20,11 @@ public class Proxy {
     public ResponseEntity<?> factors(@RequestParam Integer value) throws IOException {
         String response = "";
         if(pivot%2==0){
-            response = HttpConnection("http://localhost:1000/factors?"+"value=" + value);
+            response = HttpConnection("http://ec2-100-27-217-137.compute-1.amazonaws.com:8080/factors?"+"value=" + value);
+            System.out.println("Ejecutando MathService1 con la direccion: http://ec2-100-27-217-137.compute-1.amazonaws.com:8080");
         }else{
-            response = HttpConnection("http://localhost:1000/factors?"+"value=" + value);
+            response = HttpConnection("http://ec2-184-73-118-249.compute-1.amazonaws.com:8080/factors?"+"value=" + value);
+            System.out.println("Ejecutando MathService2 con la direccion: http://ec2-184-73-118-249.compute-1.amazonaws.com:8080");
         }
         pivot+=1;
         return ResponseEntity.ok(response);
@@ -32,9 +34,11 @@ public class Proxy {
     public ResponseEntity<?> primes(@RequestParam Integer value) throws IOException {
         String response = "";
         if(pivot%2==0){
-            response = HttpConnection("http://localhost:1000/primes?value=" + value);
+            response = HttpConnection("http://ec2-100-27-217-137.compute-1.amazonaws.com:8080/primes?value=" + value);
+            System.out.println("Ejecutando MathService1 con la direccion: http://ec2-100-27-217-137.compute-1.amazonaws.com:8080");
         }else{
-            response = HttpConnection("http://localhost:1000/primes?value=" + value);
+            response = HttpConnection("http://ec2-184-73-118-249.compute-1.amazonaws.com:8080/primes?value=" + value);
+            System.out.println("Ejecutando MathService2 con la direccion: http://ec2-184-73-118-249.compute-1.amazonaws.com:8080");
         }
         return ResponseEntity.ok(response);
     }

@@ -20,10 +20,11 @@ public class Proxy {
     public ResponseEntity<?> factors(@RequestParam Integer value) throws IOException {
         String response = "";
         if(pivot%2==0){
-            response = HttpConnection("http://localhost:1000/factors?value=" + value);
+            response = HttpConnection("http://localhost:1000/factors?"+"value=" + value);
         }else{
-            response = HttpConnection("http://localhost:1000/factors?value=" + value);
+            response = HttpConnection("http://localhost:1000/factors?"+"value=" + value);
         }
+        pivot+=1;
         return ResponseEntity.ok(response);
     }
 

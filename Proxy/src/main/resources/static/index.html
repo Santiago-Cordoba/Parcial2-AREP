@@ -34,11 +34,11 @@
 </form>
 <div id="getrespmsg1"></div>
 <script>
-    function loadGetMsg() {
+    function loadGetMsg1() {
     let value1 = document.getElementById("name1").value;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-    document.getElementById("getrespmsg").innerHTML =
+    document.getElementById("getrespmsg1").innerHTML =
     this.responseText;
     }
     xhttp.open("GET", "/primes?value="+value1);
